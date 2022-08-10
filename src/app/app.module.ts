@@ -6,6 +6,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProductModule } from './product/product.module';
 import { CartModule } from './cart/cart.module';
 import { AppRoutingModule } from './app-routing.module';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { ProductEffects } from './store/product/effects/product.effects';
+import { HttpClientModule } from '@angular/common/http';
+import { reducers } from './store/product/reducers';
 
 @NgModule({
   declarations: [
@@ -16,7 +21,10 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserAnimationsModule,
     ProductModule,
     CartModule,
-    AppRoutingModule
+    HttpClientModule,
+    AppRoutingModule,
+    StoreModule.forRoot(reducers),
+    EffectsModule.forRoot([ProductEffects]),
   ],
   providers: [],
   bootstrap: [AppComponent]

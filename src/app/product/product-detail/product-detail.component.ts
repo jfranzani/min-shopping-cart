@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import { Product } from 'src/app/core/models/product';
 
 @Component({
   selector: 'app-product-detail',
@@ -6,11 +7,12 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
   styleUrls: ['./product-detail.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ProductDetailComponent implements OnInit {
+export class ProductDetailComponent {
 
-  constructor() { }
+  @Input() product: Product | undefined;
 
-  ngOnInit(): void {
-  }
+  @Output() addProduct: EventEmitter<Product> = new EventEmitter<Product>()
+
+  placeholderImg = '/assets/images/placeholder.png';
 
 }

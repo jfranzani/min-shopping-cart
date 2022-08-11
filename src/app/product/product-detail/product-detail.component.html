@@ -1,1 +1,18 @@
-<p>product-detail works!</p>
+<div class="card">
+    <div class="card-body">
+        <div class="card-img-actions">
+            <img [src]="product?.image || placeholderImg" class="card-img img-fluid" [alt]="product?.title">
+        </div>
+    </div>
+
+    <div class="card-body bg-light text-center">
+        <div class="mb-2 card-title">
+            <h6 class="font-weight-semibold mb-2">
+                <a [matTooltip]="product?.description || ''" matTooltipPosition="right" href="#PLACEHOLDER"
+                    class="text-default mb-2" data-abc="true">{{product?.title}}</a>
+            </h6>
+        </div>
+        <h3 class="mb-2 font-weight-semibold">{{product?.price | currency}}</h3>
+        <button class="btn btn-dark" (click)="addProduct.emit(product)">Add</button>
+    </div>
+</div>

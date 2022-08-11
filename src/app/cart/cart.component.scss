@@ -1,0 +1,36 @@
+
+:host {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 10px;
+}
+
+.product-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-height: 200px;
+
+    &__img {
+        height: 50px;
+        width: 50px;
+        object-fit: contain;
+    }
+
+    &__description {
+        width: 100px;
+        height: 40px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 12px;
+    }
+
+    &__quantity {
+        margin-left: auto;
+    }
+}
+
+.btn-remove {
+    margin-left: 10px;
+}

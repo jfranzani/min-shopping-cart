@@ -1,8 +1,9 @@
 import { createFeatureSelector, createSelector } from "@ngrx/store";
+import { Product } from "src/app/core/models/product";
 import { ProductState } from "../../states/app.states";
 import * as fromAdapter from '../reducers/product.adapter';
 
-export const getSelectedProductId = (state: ProductState) => state.selectedProductId;
+export const getSelectedProductsIds = (state: ProductState) => state.selectedProductsIds;
 
 export const getProductState = createFeatureSelector<ProductState>('productState');
 
@@ -11,10 +12,16 @@ export const selectProductEntities = createSelector(getProductState, fromAdapter
 export const selectAllProducts = createSelector(getProductState, fromAdapter.selectAllProducts);
 export const productsCount = createSelector(getProductState, fromAdapter.productsCount);
 
-export const selectCurrentProductId = createSelector(getProductState, getSelectedProductId);
+export const selectCurrentProductsIds = createSelector(getProductState, getSelectedProductsIds);
 
-export const selectCurrentProduct = createSelector(
+export const selectCurrentProducts = createSelector(
     selectProductEntities,
-    selectCurrentProductId,
-    (productEntities, productId) => productEntities[productId || 0]
+    selectCurrentProductsIds,
+    (productEntities, productIds) => {
+        const products: Product[] = [];
+        for (const id of productIds) {
+            products.push(productEntities[id] as Product);
+        }
+        return products;
+    }
 ); 

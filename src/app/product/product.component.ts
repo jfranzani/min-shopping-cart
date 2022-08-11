@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { ProductState } from '../store/states/app.states';
 import * as fromProductActions from '../store/product/actions/product.actions';
+import * as fromCartActions from '../store/cart/actions/cart.actions';
 import * as fromProductSelector from '../store/product/selectors/product.selectors';
 import { Observable } from 'rxjs';
 import { Product } from '../core/models/product';
@@ -22,6 +23,10 @@ export class ProductComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.dispatch(fromProductActions.LoadProducts());
+  }
+
+  onAddProduct(product: Product): void {
+    this.store.dispatch(fromCartActions.AddProductCart({ productId: product.id }))
   }
 
 }

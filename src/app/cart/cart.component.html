@@ -1,1 +1,22 @@
-<p>cart works!</p>
+<ng-container *ngIf="(selectedProducts$ | async)?.length else noItems">
+    <div class="product-card" *ngFor="let product of selectedProducts$ | async">
+        <img [src]="product?.image || placeholderImg" class="product-card__img img-thumbnail" [alt]="product?.title">
+
+        <div class="product-card__description text-center">
+            <label class="text-default mb-2" data-abc="true">{{product?.title}}</label>
+        </div>
+
+        <label class="product-card__quantity">{{product?.quantity}}</label>
+
+        <button class="btn btn-sm btn-outline-light btn-remove" (click)="onRemoveItem(product.id)">
+            <fa-icon [icon]="removeIcon" size="xs"></fa-icon>
+        </button>
+    </div>
+    <hr>
+
+    <h3 class="mb-2 font-weight-semibold">Total: {{totalProducts$ | async | currency}}</h3>
+</ng-container>
+
+<ng-template #noItems>
+    <p>No Items on Cart</p>
+</ng-template>

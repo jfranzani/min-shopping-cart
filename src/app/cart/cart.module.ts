@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CartComponent } from './cart.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 
@@ -9,7 +10,11 @@ import { CartComponent } from './cart.component';
     CartComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FontAwesomeModule,
+  ],
+  exports: [
+    CartComponent
   ]
 })
 export class CartModule { }

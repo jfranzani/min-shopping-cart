@@ -1,1 +1,9 @@
-<app-product-list [productList]="allProducts$ | async"></app-product-list>
+<div class="container d-flex justify-content-center mt-50 mb-50">
+    <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+        <div class="col" *ngFor="let product of allProducts$ | async">
+            <div class="p-3 bg-light">
+                <app-product-detail [product]="product" (addProduct)="onAddProduct($event)"></app-product-detail>
+            </div>
+        </div>
+    </div>
+</div>

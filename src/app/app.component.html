@@ -1,1 +1,16 @@
-<router-outlet></router-outlet>
+<mat-drawer-container class="main-container">
+
+    <mat-drawer #drawer class="main-sidenav" mode="side" position="end">
+        <app-cart></app-cart>
+    </mat-drawer>
+
+    <div class="main-sidenav-content">
+        <button type="button" class="btn btn-light" (click)="drawer.toggle()">
+          <fa-icon [icon]="faCartShopping"></fa-icon>
+        </button>
+      </div>
+
+    <router-outlet></router-outlet>
+
+
+</mat-drawer-container>

@@ -1,0 +1,15 @@
+import { createAction, props } from "@ngrx/store";
+
+enum CartActionTypes {
+    ADD_PRODUCT_CART = '[CART] Add Product to cart',
+    REMOVE_PRODUCT_CART = '[CART] Remove Product from cart',
+    CLEAR_CART = '[CART] Clear cart',
+}
+
+export const AddProductCart = createAction(CartActionTypes.ADD_PRODUCT_CART,
+    props<{ productId: number }>());
+
+export const RemoveProductCart = createAction(CartActionTypes.REMOVE_PRODUCT_CART,
+    props<{ productId: number }>());
+
+export const ClearCart = createAction(CartActionTypes.CLEAR_CART); 

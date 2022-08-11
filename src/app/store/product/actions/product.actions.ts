@@ -24,9 +24,9 @@ export const UpdateProduct = createAction(ProductActionTypes.UPDATE_PRODUCT,
 export const UpdateProducts = createAction(ProductActionTypes.UPDATE_PRODUCTS,
     props<{ payload: { products: Update<Product>[] } }>());
 export const RemoveProduct = createAction(ProductActionTypes.REMOVE_PRODUCT,
-    props<{ payload: { id: string } }>());
+    props<{ payload: { id: number } }>());
 export const RemoveProducts = createAction(ProductActionTypes.REMOVE_PRODUCTS,
-    props<{ payload: { ids: string[] } }>());
+    props<{ payload: { ids: number[] } }>());
 export const ClearProducts = createAction(ProductActionTypes.CLEAR_PRODUCTS);
 export const LoadProducts = createAction(ProductActionTypes.LOAD_ALL_PRODUCTS);
 export const LoadProductsSuccess = createAction(ProductActionTypes.LOAD_ALL_PRODUCTS_SUCCESS,

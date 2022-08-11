@@ -6,9 +6,11 @@ import { CartState } from "../../states/app.states";
 const getCartState = createFeatureSelector<CartState>('cartState');
 const getSelectedCartProductsIds = (state: CartState) => state.productIds;
 const getCartQuantityById = (state: CartState) => state.quantityById;
+const getIsOpen = (state: CartState) => state.isOpen;
 
 export const selectCartProductIds = createSelector(getCartState, getSelectedCartProductsIds);
 export const selectCartQuantityByIds = createSelector(getCartState, getCartQuantityById);
+export const selectIsCartOpen = createSelector(getCartState, getIsOpen);
 
 export const selectCurrentProducts = createSelector(
     selectProductEntities,

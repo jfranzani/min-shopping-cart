@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { ProductState } from '../store/states/app.states';
 import { ProductCart } from '../core/models/cart';
-import { faMinus } from '@fortawesome/free-solid-svg-icons';
+import { faMinus, faClose } from '@fortawesome/free-solid-svg-icons';
 import * as fromProductActions from '../store/product/actions/product.actions';
 import * as fromCartActions from '../store/cart/actions/cart.actions';
 import * as fromCartSelector from '../store/cart/selectors/cart.selector';
@@ -20,6 +20,7 @@ export class CartComponent implements OnInit {
   public totalProducts$: Observable<number> = new Observable<number>;
 
   public removeIcon = faMinus;
+  public closeIcon = faClose;
   public placeholderImg = '/assets/images/placeholder.png';
 
   constructor(private store: Store<ProductState>) {
@@ -29,6 +30,10 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.dispatch(fromProductActions.LoadProducts());
+  }
+
+  toggleCart(): void {
+    this.store.dispatch(fromCartActions.ToggleCart({ open: false }));
   }
 
   onRemoveItem(productId: number): void {

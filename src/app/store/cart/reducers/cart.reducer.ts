@@ -5,6 +5,7 @@ import * as fromActions from '../actions/cart.actions';
 export const initialState: CartState = {
   productIds: [],
   quantityById: {},
+  isOpen: false,
 };
 
 export const cartReducer = createReducer(
@@ -56,5 +57,13 @@ export const cartReducer = createReducer(
     selectedProductsIds: [],
     quantityById: {},
   })),
+
+  on(fromActions.ToggleCart, (state: CartState, { open }): CartState => {
+    return {
+      ...state,
+      isOpen: open || !state.isOpen,
+    }
+  }),
+
 );
 

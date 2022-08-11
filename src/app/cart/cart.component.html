@@ -1,3 +1,6 @@
+<button class="btn btn-sm btn-light btn-cross" (click)="toggleCart()">
+    <fa-icon [icon]="closeIcon"></fa-icon>
+</button>
 <ng-container *ngIf="(selectedProducts$ | async)?.length else noItems">
     <div class="product-card" *ngFor="let product of selectedProducts$ | async">
         <img [src]="product?.image || placeholderImg" class="product-card__img img-thumbnail" [alt]="product?.title">

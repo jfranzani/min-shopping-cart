@@ -1,6 +1,8 @@
 @import "app/styles/colors.scss";
 @import "~bootstrap/dist/css/bootstrap.css";
 
+$bckImgUrl: url(https://img.freepik.com/free-photo/perspective-exterior-nobody-empty-box_1258-260.jpg?w=1380&t=st=1660224616~exp=1660225216~hmac=bfbae564d900d22c9e34aecc6158f5812d99d08ceed2fff42a75debc72d2f2e9);
+
 html,
 body {
   height: 100%;
@@ -9,11 +11,11 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   background: $background;
+  background-image: $bckImgUrl;
+    background-position: center;
+    background-size: cover;
 }
 
-.btn.btn-primary {
-  color: aliceblue;
-}
 
 footer {
   margin-top: 8px;

@@ -1,16 +1,30 @@
 <mat-drawer-container class="main-container">
 
-    <mat-drawer #drawer class="main-sidenav" mode="side" position="end">
-        <app-cart></app-cart>
-    </mat-drawer>
+  <mat-drawer #drawer class="main-sidenav" mode="side" position="end">
+    <app-cart></app-cart>
+  </mat-drawer>
 
-    <div class="main-sidenav-content">
-        <button type="button" class="btn btn-light" (click)="drawer.toggle()">
-          <fa-icon [icon]="faCartShopping"></fa-icon>
-        </button>
-      </div>
+  <div class="main-sidenav-content">
+    <button type="button" class="btn btn-light" (click)="drawer.toggle()">
+      <fa-icon [icon]="faCartShopping"></fa-icon>
+      <span class="badge text-bg-secondary">{{(totalProductsOnCart$ | async)?.length}}</span>
+    </button>
+  </div>
 
-    <router-outlet></router-outlet>
-
+  <router-outlet></router-outlet>
 
 </mat-drawer-container>
+<footer class="social-footer">
+  <div class="social-footer-left">
+    Jerónimo Franzani
+  </div>
+  <div class="social-footer-icons">
+    <a href="https://github.com/jfranzani/min-shopping-cart">
+      <fa-icon [icon]="faGH"></fa-icon>
+    </a>
+    <a href="https://www.linkedin.com/in/jfranzani/">
+      <fa-icon [icon]="faLinkedin"></fa-icon>
+    </a>
+
+  </div>
+</footer>

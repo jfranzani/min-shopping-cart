@@ -6,3 +6,29 @@
         padding: 10px 30px;
     }
 }
+
+.badge {
+    margin-left: 10px;
+}
+
+.social-footer {
+    padding: 1rem;
+    background: #4a4a4a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+
+    .social-footer-icons {
+        fa-icon {
+            font-size: 1.3rem;
+            color: white;
+            margin-left: 20px;
+
+            &:hover {
+                color: darken(#4a4a4a, 25%);
+                transition: color 0.3s ease-in;
+            }
+        }
+    }
+}

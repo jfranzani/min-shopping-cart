@@ -26,7 +26,7 @@ export const selectCurrentProducts = createSelector(
     }
 );
 
-export const selectCurrentProductsTotal = createSelector(
+export const selectCurrentProductsTotalAmount = createSelector(
     selectCurrentProducts,
     (currentProducts): number => {
         let total = 0;

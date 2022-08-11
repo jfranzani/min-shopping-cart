@@ -24,7 +24,7 @@ export class CartComponent implements OnInit {
 
   constructor(private store: Store<ProductState>) {
     this.selectedProducts$ = store.select(fromCartSelector.selectCurrentProducts);
-    this.totalProducts$ = store.select(fromCartSelector.selectCurrentProductsTotal);
+    this.totalProducts$ = store.select(fromCartSelector.selectCurrentProductsTotalAmount);
   }
 
   ngOnInit(): void {

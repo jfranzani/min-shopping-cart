@@ -1,6 +1,6 @@
 import { createAction, props } from "@ngrx/store";
 
-enum CartActionTypes {
+export enum CartActionTypes {
     ADD_PRODUCT_CART = '[CART] Add Product to cart',
     REMOVE_PRODUCT_CART = '[CART] Remove Product from cart',
     CLEAR_CART = '[CART] Clear cart',

@@ -2,14 +2,14 @@ import { createReducer, on } from '@ngrx/store';
 import { CartState } from '../../states/app.states';
 import * as fromActions from '../actions/cart.actions';
 
-export const initialState: CartState = {
+export const initialCartState: CartState = {
   productIds: [],
   quantityById: {},
   isOpen: false,
 };
 
 export const cartReducer = createReducer(
-  initialState,
+  initialCartState,
 
   on(fromActions.AddProductCart, (state: CartState, { productId }): CartState => {
     // Product already exists on cart
@@ -52,11 +52,13 @@ export const cartReducer = createReducer(
     });
   }),
 
-  on(fromActions.ClearCart, (state: CartState): CartState => Object.assign({
-    ...state,
-    selectedProductsIds: [],
-    quantityById: {},
-  })),
+  on(fromActions.ClearCart, (state: CartState): CartState => {
+    return {
+      ...state,
+      productIds: [],
+      quantityById: {},
+    }
+  }),
 
   on(fromActions.ToggleCart, (state: CartState, { open }): CartState => {
     return {

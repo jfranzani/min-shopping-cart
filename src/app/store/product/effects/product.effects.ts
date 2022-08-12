@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { map, switchMap } from 'rxjs/operators';
+import { catchError, map, switchMap } from 'rxjs/operators';
 import { ProductService } from 'src/app/services/product.service';
 import * as fromActions from '../actions/product.actions';
 
@@ -12,7 +12,8 @@ export class ProductEffects {
         switchMap(() =>
             this.productService.getAllProducts().pipe(
                 map(data => fromActions.LoadProductsSuccess({ payload: { products: data } }))
-            )
+            ),
+            // TODO Catch Error - create action for this
         )
     ));
 

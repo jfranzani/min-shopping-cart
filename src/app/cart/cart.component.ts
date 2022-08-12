@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { ProductState } from '../store/states/app.states';
+import { AppState } from '../store/states/app.states';
 import { ProductCart } from '../core/models/cart';
 import { faMinus, faClose } from '@fortawesome/free-solid-svg-icons';
 import * as fromProductActions from '../store/product/actions/product.actions';
@@ -23,7 +23,7 @@ export class CartComponent implements OnInit {
   public closeIcon = faClose;
   public placeholderImg = '/assets/images/placeholder.png';
 
-  constructor(private store: Store<ProductState>) {
+  constructor(private store: Store<AppState>) {
     this.selectedProducts$ = store.select(fromCartSelector.selectCurrentProducts);
     this.totalProducts$ = store.select(fromCartSelector.selectCurrentProductsTotalAmount);
   }
@@ -32,7 +32,7 @@ export class CartComponent implements OnInit {
     this.store.dispatch(fromProductActions.LoadProducts());
   }
 
-  toggleCart(): void {
+  closeCart(): void {
     this.store.dispatch(fromCartActions.ToggleCart({ open: false }));
   }
 

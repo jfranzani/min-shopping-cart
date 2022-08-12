@@ -3,13 +3,13 @@ import { ProductState } from '../../states/app.states';
 import * as fromActions from '../actions/product.actions';
 import * as fromAdapter from './product.adapter';
 
-export const initialState: ProductState = fromAdapter.adapter.getInitialState({
+export const initialProductState: ProductState = fromAdapter.adapter.getInitialState({
   selectedProductsIds: []
 });
 
 // Creating reducer                        
 export const productReducer = createReducer(
-  initialState,
+  initialProductState,
   on(fromActions.AddProduct, (state: ProductState, { payload }): ProductState => fromAdapter.adapter.addOne(payload.product, state)),
   on(fromActions.AddProducts, (state: ProductState, { payload }): ProductState => fromAdapter.adapter.addMany(payload.products, state)),
   on(fromActions.UpdateProduct, (state: ProductState, { payload }): ProductState => fromAdapter.adapter.updateOne(payload.product, state)),

@@ -1,4 +1,4 @@
-<button class="btn btn-sm btn-light btn-cross" (click)="toggleCart()">
+<button class="btn btn-sm btn-light btn-cross" (click)="closeCart()">
     <fa-icon [icon]="closeIcon"></fa-icon>
 </button>
 <ng-container *ngIf="(selectedProducts$ | async)?.length else noItems">
